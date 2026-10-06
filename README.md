@@ -33,31 +33,6 @@ This system separates **reasoning** from **rendering**:
 ---
 
 
-## 🏗️ Architecture
-User Prompt: "Update my GPA to 3.9 and point my GitHub link to github.com/newdev"
-                          │
-                          ▼
-               [ Groq Orchestration Agent ]
-                 (Fast LPU Tool-Calling Loop)
-                          │
- ┌────────────────────────┴────────────────────────┐
- ▼                                                 ▼
-[ inspect_resume_text ]                          [ inspect_resume_links ]
-• Resolves coordinates [x0, y0, x1, y1]          • Locates active /Link URIs
-• Extracts font, size, weight & sRGB             • Extracts clickable bounds
-│                                                 │
-└────────────────────────┬────────────────────────┘
-                         │
-                         ▼
-            [ Python Engine (PyMuPDF) ]
-           • In-place visual redaction
-           • Matched typography re-stamping
-           • Interactive URI annotation rebinding
-                        │
-                        ▼
-           Pixel-Perfect ATS Resume Output
-
-
 ---
 
 ## 🚀 Features
